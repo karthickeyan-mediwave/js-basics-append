@@ -44,6 +44,21 @@ let favMovies = [
     name: "Baheera",
     year: "2023",
   },
+  {
+    id: "10",
+    name: "sachin",
+    year: "2023",
+  },
+  {
+    id: "11",
+    name: "Manmadhan",
+    year: "2023",
+  },
+  {
+    id: "12",
+    name: "vallavan",
+    year: "2023",
+  },
 ];
 
 function makeMovieDiv(movie) {
