@@ -96,7 +96,9 @@ function appendToApp(movieDiv) {
   app.appendChild(movieDiv);
 }
 
-for (let i = 0; i < favMovies.length; i++) {
-  const movieDiv = makeMovieDiv(favMovies[i]);
-  appendToApp(movieDiv);
+function updateUI() {
+  for (let i = 0; i < favMovies.length; i++) {
+    const movieDiv = makeMovieDiv(favMovies[i]);
+    appendToApp(movieDiv);
+  }
 }
