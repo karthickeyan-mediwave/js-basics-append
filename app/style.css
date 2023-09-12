@@ -1,13 +1,16 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+h2 {
+  text-align: center;
+  color: dodgerblue;
+}
 #app {
   display: grid;
   grid-template-columns: auto auto auto auto;
   text-align: center;
-  margin-top: 50px;
+  margin: 20px auto;
   padding: 100px;
-  background: #e6ebef;
   border-radius: 25px;
 }
 .movie-card {
@@ -17,13 +20,58 @@ body {
   padding: 10px;
   background-color: white;
 }
-.btn {
+
+form {
+  width: 300px;
+  margin: 50px auto;
+  border: 1px solid rgb(178, 177, 180);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: aliceblue;
+}
+input[type="text"],
+input[type="number"] {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="submit"] {
   width: 150px;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 75px;
+  border: none;
+  border-radius: 4px;
+}
+.btn {
+  width: 100px;
   background-color: dodgerblue;
   color: white;
   padding: 8px 2px;
   border: 1px solid white;
   border-radius: 5px;
+}
+.edit-btn {
+  padding: 8px 2px;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 100px;
+  background-color: rgb(131, 70, 192);
+  color: white;
+}
+.update-btn {
+  background-color: palegreen;
+  border: none;
+  border-radius: 5px;
+}
+
+#movie-name {
+  margin-bottom: 20px;
 }
 @media screen and (max-width: 1100px) {
   #app {
