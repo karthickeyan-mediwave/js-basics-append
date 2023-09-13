@@ -1,6 +1,6 @@
 ## js basics
 
-### button onclick function
+### crud operation
 
 #### To run
 

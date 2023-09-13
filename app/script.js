@@ -32,8 +32,12 @@ function makeMovieDiv(movie) {
         favMovies[toUpdateIndex]["name"] = newTitle;
         favMovies[toUpdateIndex]["year"] = newYear;
         favMovies[toUpdateIndex]["isEdit"] = false;
-        saveToLocalStorage();
-        updateUI();
+
+        const updateValid = updateValidation(movie);
+        if (updateValid) {
+          saveToLocalStorage();
+          updateUI();
+        }
       }
     });
 
@@ -116,22 +120,53 @@ function clearApp() {
 }
 let form = document.querySelector("#add-movie-form");
 
+function updateValidation(movie) {
+  const newTitle = document.querySelector(`#edit-${movie.id}-name`).value;
+  const newYear = document.querySelector(`#edit-${movie.id}-year`).value;
+  const date = new Date();
+  let currentyear = date.getFullYear();
+
+  if (!newTitle) {
+    alert("please enter movie name");
+    return false;
+  } else if (!newYear) {
+    alert("please enter movie year");
+    return false;
+  } else if (currentyear < newYear) {
+    alert("please enter current year");
+    return false;
+  }
+  return true;
+}
+
 function validation() {
   const name = document.querySelector("#movie-name").value;
   const year = document.querySelector("#movie-year").value;
+  const namerror = document.querySelector("#movie-name-error");
+  const yearerror = document.querySelector("#movie-year-error");
+  const currentYearError = document.querySelector("#current-year-error");
   const date = new Date();
   let currentyear = date.getFullYear();
 
   if (!name) {
-    alert("please enter movie name");
+    // alert("please enter movie name");
+    namerror.style.display = "block";
     return false;
-  } else if (year == "" || year == null) {
-    alert("please enter movie year");
+  } else if (!year) {
+    // alert("please enter movie year");
+    namerror.style.display = "none";
+    yearerror.style.display = "block";
     return false;
   } else if (currentyear < year) {
-    alert("please enter current year");
+    // alert("please enter current year");
+    yearerror.style.display = "none";
+    currentYearError.style.display = "block";
     return false;
   }
+  namerror.style.display = "none";
+  yearerror.style.display = "none";
+  currentYearError.style.display = "none";
+
   return true;
 }
 
@@ -153,7 +188,6 @@ function hookForm() {
       form.reset();
       return;
     }
-    alert("fail");
   });
 }
 function updateUI() {
@@ -176,14 +210,6 @@ function getFromLocalStorage() {
     favMovies = JSON.parse(str);
   }
 }
-
-// function datevalid() {
-//   const date = new Date();
-//   let currentyear = date.getFullYear();
-//   if (currentyear != year) {
-//     console.log(year);
-//   }
-// }
 
 getFromLocalStorage();
 updateUI();

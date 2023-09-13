@@ -73,6 +73,21 @@ input[type="submit"] {
 #movie-name {
   margin-bottom: 20px;
 }
+#movie-name-error {
+  color: red;
+  display: none;
+  text-align: center;
+}
+#movie-year-error {
+  color: red;
+  display: none;
+  text-align: center;
+}
+#current-year-error {
+  color: red;
+  display: none;
+  text-align: center;
+}
 @media screen and (max-width: 1100px) {
   #app {
     grid-template-columns: auto auto auto;
